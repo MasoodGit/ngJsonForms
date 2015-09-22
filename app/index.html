@@ -2,7 +2,17 @@
 <html ng-app="app">
 <head>
   <title>UI Elements</title>
-  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- apiCheck is used by formly to validate its api -->
+    <script src="//rawgit.com/kentcdodds/apiCheck.js/master/dist/api-check.js"></script>
+    <!-- This is the latest version of angular (at the time this template was created) -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+
+    <!-- This is the current state of master for formly core. -->
+    <script src="https://rawgit.com/formly-js/angular-formly/latest/dist/formly.js"></script>
+    <!-- This is the current state of master for the bootstrap templates -->
+    <script src="//rawgit.com/formly-js/angular-formly-templates-bootstrap/master/dist/angular-formly-templates-bootstrap.js"></script>
   <style type="text/css">
       .radio, .checkbox {
         display: inline-block;
@@ -82,11 +92,7 @@
 </script>
 
 
-<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
-<script type="text/javascript" src="bower_components/api-check/dist/api-check.js"></script>
-<script type="text/javascript" src="bower_components/angular/angular.js"></script>
-<script type="text/javascript" src="bower_components/angular-formly/dist/formly.js"></script>
-<script type="text/javascript" src="bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
+
 <script type="text/javascript" src="app.js"></script>
 </body>
 </html>
