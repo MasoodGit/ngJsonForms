@@ -17,7 +17,8 @@ angular
               return fields;
         }
 
-        function addNewField(fields) {
+        function addNewField() {
+          console.log('here....');
           //This should now call the function on the parent Ctrl
           //i.e vm.addNewDynamicField()
         }
