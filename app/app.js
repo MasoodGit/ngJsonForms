@@ -6,7 +6,7 @@ angular
     var unique = 1;
     formlyConfigProvider.setType({
       name: 'dynamicList',
-      templateUrl: 'dynamiclist-directive_.html',
+      templateUrl: 'dynamiclist_tpl.html',
       controller: function($scope) {
         $scope.addNewField= addNewField;
         $scope.copyFields = copyFields;
