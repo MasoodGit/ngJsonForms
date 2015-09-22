@@ -1,0 +1,22 @@
+{"patientHistory":
+  {
+    "allergy":
+      [
+        {
+          "questionID":1,
+          "acomponent":
+                    {
+                      "type":"RADIOBUTTON",
+                      "selectedChoice":"Yes",
+                      "achoice":{"acomponents":[{"type":"DYNAMICLIST","dynamicValues":["8"]}]}}}],
+    "currentMedication":
+      [
+        {
+          "questionID":3,
+          "acomponent":
+                    {
+                      "type":"RADIOBUTTON",
+                      "selectedChoice":"Yes",
+                      "achoice":
+                                {
+                                  "acomponents":[{"type":"TEXTBOX","value":"test"}]}}}]}}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <title>Json Forms </title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+<div class="container">
+  <div class="row" ng-controller="historyController as historyCtrl">
+    <form name='historyForm'>
+      <div ng-form  ng-repeat="(key, questions) in historyCtrl.history.fields">
+      {{ key }}
+      <div 
+        data-question-Id = {{question.questionID}}
+        data-question-type={{question.questionType}} 
+        ng-repeat="question in questions">
+        <div ng-switch="question.qcomponent.type">
+          <div ng-switch-when="CHECKBOX">
+            'CHECBOX'
+          </div>
+          <div ng-switch-when="TEXTBOX">
+            'TEXTBOX'
+          </div>
+          <div ng-switch-when="RADIOBUTTON">
+            'RADIOBUTTON'
+          </div>
+          <div ng-switch-when="TEXTAREA">
+            'TEXTAREA'
+          </div>
+          <div ng-switch-when="DROPDOWN">
+            'DROPDOWN'
+          </div>
+        </div>
+      </div>
+      </div>
+    </form>
+  </div>
+  </div>
+  <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+</body>
+</html>

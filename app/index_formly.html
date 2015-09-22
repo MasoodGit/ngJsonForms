@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <title>UI Elements</title>
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <style type="text/css">
+      .radio, .checkbox {
+        display: inline-block;
+        padding-left: 20px;
+        margin-bottom: 0;
+        margin-top: 0;
+        vertical-align: middle;
+        font-weight: 400;
+        cursor: pointer;
+    }
+    .radio-inline, .checkbox-inline {
+        display: inline-block;
+        padding-left: 20px;
+        margin-bottom: 0;
+        vertical-align: middle;
+        font-weight: 400;
+        cursor: pointer;
+    }
+
+    .formly-field {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+<div class="container" ng-controller="formsController as vm">
+<form name="vm.form" ng-submit="vm.generateAnswerModel()" novalidate>
+  <formly-form model='vm.model' fields='vm.historyFields'>
+  <input type="submit" class="btn btn-primary" value="Submit" />
+   <button type='button' class="btn btn-sm" ng-click="vm.addNewDynamicField()">Add</button>
+  </formly-form>
+</form>
+<pre>{{ vm.model | json }}</pre>
+<h2>Fields</h2>
+<pre>{{ vm.historyFields | json }}</pre>
+<h2>QuestionTypes</h2>
+<pre>{{ vm.questionTypes | json }}</pre>
+<h2>Answer Model</h2>
+<pre>{{ vm.patientHistory | json }}</pre>
+</div>
+
+
+<!-- templates -->
+<script type="text/ng-template" id="dynamiclist-directive_.html">
+  <div>
+    <div>
+      <div class="form-group"  ng-init="fields = copyFields(to.fields)" >
+        <label>"Medicine / drug name"</label>
+        <formly-form fields="fields" model="model[options.key]" form="form" >
+          <button type="button" class="btn btn-sm btn-danger" ng-click="model[options.key].splice($index, 1)">
+            Remove
+          </button>
+        </formly-form>
+      </div>
+    </div>
+    <button type ="button" class="btn btn-primary" ng-click="addNewField(vm.historyFields)">Add</button>
+
+  </div>
+
+</script>
+
+<script type="text/ng-template" id="dynamiclist-directive.html">
+  <div>
+    <div>
+      <div class="form-group">
+        <div>
+          <input type='text' ng-model="model[options.key]"  />
+          <button type="button" class="btn btn-sm btn-danger" >
+            Remove
+          </button>
+        </div>
+      </div>
+    </div>
+    <button type='button' class="btn btn-primary" ng-click="vm.addNewDynamicField()">Add</button>
+  </div>
+
+</script>
+
+
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="bower_components/api-check/dist/api-check.js"></script>
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="bower_components/angular-formly/dist/formly.js"></script>
+<script type="text/javascript" src="bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
