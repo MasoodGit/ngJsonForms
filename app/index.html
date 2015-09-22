@@ -56,7 +56,7 @@
 
 
 <!-- templates -->
-<script type="text/ng-template" id="dynamiclist-directive_.html">
+<script type="text/ng-template" id="dynamiclist_tpl.html">
   <div>
     <div>
       <div class="form-group"  ng-init="fields = copyFields(to.fields)" >
@@ -68,28 +68,13 @@
         </formly-form>
       </div>
     </div>
-    <button type ="button" class="btn btn-primary" ng-click="addNewField(vm.historyFields)">Add</button>
+    <button type ="button" class="btn btn-primary" ng-click="addNewField()">Add</button>
 
   </div>
 
 </script>
 
-<script type="text/ng-template" id="dynamiclist-directive.html">
-  <div>
-    <div>
-      <div class="form-group">
-        <div>
-          <input type='text' ng-model="model[options.key]"  />
-          <button type="button" class="btn btn-sm btn-danger" >
-            Remove
-          </button>
-        </div>
-      </div>
-    </div>
-    <button type='button' class="btn btn-primary" ng-click="vm.addNewDynamicField()">Add</button>
-  </div>
 
-</script>
 
 
 
