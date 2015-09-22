@@ -1,16 +1,5 @@
 angular.module('app', ['formly', 'formlyBootstrap']);
 
-
-angular
-  .module('app')
-  .directive('dynamiclistDirective',function() {
-    return {
-      templateUrl: 'dynamiclist-directive.html'
-    };
-  });
-
-
-
 angular
   .module('app')
   .config(function(formlyConfigProvider){
@@ -29,17 +18,8 @@ angular
         }
 
         function addNewField(fields) {
-          // $scope.model[$scope.options.key] = $scope.model[$scope.options.key] || [];
-          // var repeatsection = $scope.model[$scope.options.key];
-          // var lastSection = repeatsection[repeatsection.length - 1];
-          // var newsection = {};
-          // if (lastSection) {
-          //   newsection = angular.copy(lastSection);
-          // }
-          // repeatsection.push(newsection);
-          $scope.model[$scope.options.key] = $scope.model[$scope.options.key] || []
-          var repeatsection = $scope.model[$scope.options.key];
-          $scope.model['sub_1_2'] = repeatsection;
+          //This should now call the function on the parent Ctrl
+          //i.e vm.addNewDynamicField()
         }
 
         function addRandomIds(fields) {
@@ -81,9 +61,7 @@ vm.questionTypes = [];
 vm.patientHistory = {};
 
 
-
-
-
+//Generate answer json object 
 vm.generateAnswerModel = function () {
   vm.patientHistory = {};
   angular.forEach(vm.model, function(value, key) {
@@ -106,6 +84,7 @@ vm.generateAnswerModel = function () {
 };
 
 
+//Adds new input field, when Add is clicked.
 vm.addNewDynamicField = function() {
   $timeout(function(){
 
@@ -127,7 +106,7 @@ vm.addNewDynamicField = function() {
   });
 };
 
-
+//Fetch the json object
 $http.get('historyQuestions.json').then(function(response) {
   var historyQuestions = angular.fromJson(response.data.payload);
   angular.forEach(historyQuestions, function(value, key) {
@@ -161,7 +140,7 @@ $http.get('historyQuestions.json').then(function(response) {
   });
 });
 
-
+//Parse the json object and return fields as needed by formly
 function getFields(question) {
   var fields = [];
   var qComponentType = getType(question.qcomponent.type);
@@ -239,7 +218,7 @@ function getFields(question) {
             }
           } else if(subComponentType === 'dynamicList') {
             var subField = {
-              type:'dynamicList',
+              type:'dynamicList', // custom type for repeating the input fields
               key : 'sub_' + question.questionID + '_' + key,
               templateOptions: {
 
