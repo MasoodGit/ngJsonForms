@@ -1,6 +1,3 @@
-git remote add origin https://github.com/MasoodGit/ngJsonForms.git
-git push -u origin master
-
 # Ignore Visual Studio  Project #
 ###################
 *.user
