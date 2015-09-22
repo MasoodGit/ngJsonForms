@@ -42,7 +42,7 @@
 <form name="vm.form" ng-submit="vm.generateAnswerModel()" novalidate>
   <formly-form model='vm.model' fields='vm.historyFields'>
   <input type="submit" class="btn btn-primary" value="Submit" />
-   <button type='button' class="btn btn-sm" ng-click="vm.addNewDynamicField()">Add</button>
+   <button type='button' class="btn btn-sm" ng-click="vm.addNewDynamicField()">Add(Method on formsController )</button>
   </formly-form>
 </form>
 <h2>Model</h2>
@@ -69,7 +69,7 @@
         </formly-form>
       </div>
     </div>
-    <button type ="button" class="btn btn-primary" ng-click="addNewField()">Add</button>
+    <button type ="button" class="btn btn-primary" ng-click="addNewField()">Add(From the template)</button>
 
   </div>
 </script>
